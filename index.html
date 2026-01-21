@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evoke Avalanche Dive | Oficial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #080808;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    .lux-border {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .premium-shadow {
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+
+    .text-premium {
+      background: linear-gradient(180deg, #fff 0%, #777 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body x-data="{ 
+    cartOpen: false,
+    selectedColor: 'Preto Fosco',
+    mainImg: 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg', 
+    checkoutLink: 'https://pay.sunize.com.br/oQvSnkbb',
+    variacoes: {
+        'Preto Fosco': 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg',
+        'Preto Brilhante': 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg',
+        'Lente Fumê': 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg',
+        'Lente Espelhada': 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg',
+        'Lente Azul': 'https://i.postimg.cc/mDByMv9S/evoke-frontal.jpg'
+    }
+}">
+
+  <div class="bg-white text-black py-2 text-center text-[10px] font-black uppercase tracking-[0.3em] fixed w-full z-[60]">
+    Frete Grátis hoje para todo o Brasil | 12x no cartão
+  </div>
+
+  <header class="fixed top-8 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/5">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-black italic tracking-tighter uppercase">EVOKE <span class="font-light text-gray-500 tracking-normal uppercase">AVALANCHE</span></div>
+      <div class="flex items-center space-x-6">
+        <button @click="cartOpen = true" class="relative group">
+          <i class="fa-solid fa-cart-shopping text-xl transition group-hover:text-gray-400"></i>
+          <span class="absolute -top-2 -right-2 bg-white text-black text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">1</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="pt-40 pb-20 px-6 container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div class="space-y-6">
+        <div class="bg-[#111] lux-border rounded-3xl p-10 group overflow-hidden premium-shadow relative">
+          <img :src="mainImg" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110" alt="Evoke Avalanche Dive">
+        </div>
+        <div class="flex justify-center gap-4">
+          <button @click="mainImg = variacoes[selectedColor]" class="w-20 h-20 bg-zinc-900 lux-border rounded-xl p-2 hover:border-white transition">
+            <img :src="variacoes[selectedColor]" class="w-full h-full object-contain">
+          </button>
+          <button @click="mainImg = 'https://images.unsplash.com/photo-1511499767350-a1590fdb7358?q=80&w=800'" class="w-20 h-20 bg-zinc-900 lux-border rounded-xl flex items-center justify-center hover:border-white transition overflow-hidden grayscale">
+            <span class="text-[9px] font-bold text-zinc-500 uppercase">Lateral</span>
+          </button>
+          <button @click="mainImg = 'https://images.unsplash.com/photo-1577803645773-f96470509666?q=80&w=800'" class="w-20 h-20 bg-zinc-900 lux-border rounded-xl flex items-center justify-center hover:border-white transition overflow-hidden">
+            <span class="text-[9px] font-bold text-zinc-500 uppercase">Lifestyle</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <span class="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em]">Óculos de Sol Premium</span>
+          <h1 class="text-6xl lg:text-7xl font-black uppercase italic leading-none tracking-tighter mt-2 text-premium">Avalanche Dive</h1>
+          <p class="text-xl text-zinc-400 mt-4 italic font-light tracking-wide">Estilo e proteção em qualquer ocasião.</p>
+        </div>
+
+        <div class="flex items-end space-x-4">
+          <span class="text-5xl font-black italic tracking-tighter">R$ 119,99</span>
+          <span class="text-zinc-600 line-through text-xl italic mb-1">R$ 299,00</span>
+        </div>
+
+        <div class="space-y-4 pt-4 border-t border-white/5">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Escolha sua variação:</p>
+          <div class="flex flex-wrap gap-2">
+            <template x-for="cor in Object.keys(variacoes)">
+              <button @click="selectedColor = cor; mainImg = variacoes[cor]" :class="selectedColor === cor ? 'bg-white text-black border-white' : 'bg-transparent text-zinc-400 border-white/10'" class="px-4 py-2 border rounded-full text-[10px] font-black uppercase tracking-widest transition-all" x-text="cor"></button>
+            </template>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+          <button @click="cartOpen = true" class="bg-zinc-900 border border-white/10 py-5 rounded-sm font-black text-xs uppercase tracking-widest hover:bg-zinc-800 transition">Adicionar ao Carrinho</button>
+          <a :href="checkoutLink" class="bg-white text-black py-5 rounded-sm text-center font-black text-xs uppercase tracking-widest hover:bg-zinc-200 transition shadow-[0_0_30px_rgba(255,255,255,0.1)]">Comprar Agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-zinc-950 py-24 border-y border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-black uppercase italic mb-6 tracking-tight">Design Esportivo e Performance</h2>
+        <p class="text-zinc-500 leading-relaxed italic">O Evoke Avalanche Dive une a robustez do estilo esportivo com a leveza necessária para o uso diário. Composto por materiais de alta resistência, ele oferece conforto absoluto e um visual agressivo que se destaca em qualquer ambiente urbano.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+        <div class="space-y-4">
+          <i class="fa-solid fa-shield-halved text-2xl"></i>
+          <h4 class="font-black uppercase text-xs italic tracking-widest">Proteção UV400</h4>
+          <p class="text-zinc-600 text-[11px]">Bloqueio total contra raios nocivos para sua saúde visual.</p>
+        </div>
+        <div class="space-y-4">
+          <i class="fa-solid fa-bolt text-2xl"></i>
+          <h4 class="font-black uppercase text-xs italic tracking-widest">Alta Durabilidade</h4>
+          <p class="text-zinc-600 text-[11px]">Construído em polímero premium resistente a impactos.</p>
+        </div>
+        <div class="space-y-4">
+          <i class="fa-solid fa-crown text-2xl"></i>
+          <h4 class="font-black uppercase text-xs italic tracking-widest">Visual Premium</h4>
+          <p class="text-zinc-600 text-[11px]">Linhas modernas inspiradas nas maiores grifes de luxo.</p>
+        </div>
+        <div class="space-y-4">
+          <i class="fa-solid fa-check text-2xl"></i>
+          <h4 class="font-black uppercase text-xs italic tracking-widest">Custo-Benefício</h4>
+          <p class="text-zinc-600 text-[11px]">Qualidade de elite com valor acessível direto para você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-24 text-center bg-black">
+    <h2 class="text-5xl lg:text-7xl font-black uppercase italic mb-10 tracking-tighter text-premium">Garanta o seu agora.</h2>
+    <a :href="checkoutLink" class="inline-block bg-white text-black px-12 py-6 rounded-full font-black text-xs uppercase tracking-widest hover:scale-110 transition-transform shadow-xl">Comprar agora por R$ 119,99</a>
+
+    <div class="mt-20 flex justify-center gap-8 opacity-20 text-3xl">
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-solid fa-pix"></i>
+    </div>
+    <p class="mt-8 text-[9px] text-zinc-700 uppercase tracking-widest italic">© 2026 Evoke Avalanche Dive | Checkout Seguro Sunize</p>
+  </footer>
+
+  <div x-cloak x-show="cartOpen" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm" x-transition.opacity>
+    <div class="absolute right-0 top-0 h-full w-full max-w-sm bg-zinc-950 p-8 border-l border-white/10 flex flex-col" @click.away="cartOpen = false">
+      <div class="flex justify-between items-center mb-10">
+        <h3 class="font-black uppercase italic text-xl tracking-tighter">Seu Carrinho</h3>
+        <button @click="cartOpen = false" class="hover:text-zinc-400 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+      </div>
+
+      <div class="flex gap-4 pb-8 border-b border-white/5">
+        <div class="w-20 h-20 bg-black rounded-xl lux-border p-2">
+          <img :src="variacoes[selectedColor]" class="w-full h-full object-contain">
+        </div>
+        <div class="flex-1">
+          <h4 class="font-black uppercase text-[10px] italic" x-text="'Avalanche - ' + selectedColor"></h4>
+          <p class="text-white font-black mt-2 text-sm italic">R$ 119,99</p>
+          <p class="text-zinc-600 text-[9px] mt-1 italic tracking-widest">Tamanho Único</p>
+        </div>
+      </div>
+
+      <div class="mt-auto pt-10">
+        <div class="flex justify-between font-black text-xs uppercase mb-6">
+          <span>Subtotal</span>
+          <span>R$ 119,99</span>
+        </div>
+        <a :href="checkoutLink" class="block bg-white text-black text-center py-5 font-black text-xs uppercase tracking-widest hover:bg-gray-200 transition">Finalizar Pagamento</a>
+        <p class="text-center text-[8px] text-zinc-600 uppercase mt-4 tracking-tighter italic font-bold">Checkout 100% Seguro via Sunize Payments</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
